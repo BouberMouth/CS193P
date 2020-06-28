@@ -22,6 +22,7 @@ class SetVM: ObservableObject {
     var availableCards: [SetGame.Card] {
         setGame.availableCards
     }
+    var isDeckEmpty: Bool {setGame.isDeckEmpty}
     var thereIsAMatch: Bool {setGame.thereIsAMatch}
     var thereIsAMismatch: Bool {setGame.thereIsAMismatch}
     

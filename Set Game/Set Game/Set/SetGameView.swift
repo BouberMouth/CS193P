@@ -26,9 +26,14 @@ struct SetGameView: View {
                         self.viewModel.select(card)
                 }
             }
-            Button("Deal 3 cards") {
+            
+            Button(action: {
                 self.viewModel.dealThreeCards()
-            }
+            }, label: {
+                Text("Deal 3 cards")
+                    .foregroundColor(.red)
+                    .opacity(viewModel.isDeckEmpty ? 0 : 1)
+            })
         }
     }
 }

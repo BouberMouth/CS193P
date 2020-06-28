@@ -22,9 +22,13 @@ struct SetGame {
     private var indexesOfSelectedCards: [Int] {
         selectedCards.map { cards.firstIndex(matching: $0)! }
     }
-    
     private var selectedCards: [Card] {
         cards.filter { $0.isSelected }
+    }
+    
+    private var dealCount = 0
+    var isDeckEmpty: Bool {
+        return dealCount == cards.count
     }
     
     var thereIsAMatch: Bool {
@@ -77,6 +81,10 @@ struct SetGame {
     // array.
     // ㊟ A position may be specified if and only if the number of card to be dealt is 1 !!!
     mutating func deal(_ n: Int, at position: Int? = nil) {
+        indexesOfSelectedCards.forEach {
+            cards[$0].isSelected = false
+        }
+        
         let indexOfCardsToDeal = cards.filter { $0.hasBeenDealt == false }
             .map { cards.firstIndex(matching: $0)! }
             .shuffled()
@@ -99,6 +107,8 @@ struct SetGame {
                 indexOfAvailableCards.append(indexOfCardsToDeal[i])
             }
         }
+        
+        dealCount += n
     }
     
     
