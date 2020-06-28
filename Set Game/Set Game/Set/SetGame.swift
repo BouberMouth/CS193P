@@ -15,7 +15,7 @@ struct SetGame {
     
     
     private var indexOfAvailableCards = [Int]()
-    var availableCards: [Card] {
+    var displayedCards: [Card] {
         return indexOfAvailableCards.map { cards[$0] }
     }
     
@@ -72,7 +72,6 @@ struct SetGame {
                 }
             }
         }
-        cards.shuffle()
         deal(12)
     }
     
@@ -87,7 +86,7 @@ struct SetGame {
         
         let indexOfCardsToDeal = cards.filter { $0.hasBeenDealt == false }
             .map { cards.firstIndex(matching: $0)! }
-            .shuffled()
+            //.shuffled()
         
         guard indexOfCardsToDeal.count >= n else {
             if let position = position {

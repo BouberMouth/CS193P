@@ -20,7 +20,7 @@ class SetVM: ObservableObject {
         setGame.cards
     }
     var availableCards: [SetGame.Card] {
-        setGame.availableCards
+        setGame.displayedCards
     }
     var isDeckEmpty: Bool {setGame.isDeckEmpty}
     var thereIsAMatch: Bool {setGame.thereIsAMatch}
@@ -35,6 +35,10 @@ class SetVM: ObservableObject {
     
     func dealThreeCards() {
         setGame.deal(3)
+    }
+    
+    func newGame() {
+        setGame = SetVM.createNewGame()
     }
 
     static func colorFor(_ card: SetGame.Card) -> Color {

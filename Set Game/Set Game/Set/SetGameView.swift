@@ -27,13 +27,23 @@ struct SetGameView: View {
                 }
             }
             
-            Button(action: {
-                self.viewModel.dealThreeCards()
-            }, label: {
-                Text("Deal 3 cards")
-                    .foregroundColor(.red)
-                    .opacity(viewModel.isDeckEmpty ? 0 : 1)
-            })
+            HStack {
+                Button(action: {
+                    self.viewModel.dealThreeCards()
+                }, label: {
+                    Text("Deal 3 cards")
+                        .foregroundColor(.red)
+                        .opacity(viewModel.isDeckEmpty ? 0 : 1)
+                })
+                
+                Button(action: {
+                    self.viewModel.newGame()
+                }, label: {
+                    Text("New Game")
+                        .foregroundColor(.red)
+                        .opacity(viewModel.isDeckEmpty ? 0 : 1)
+                })
+            }
         }
     }
 }

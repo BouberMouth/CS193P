@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		718DF64C24A94B3900BE4A9F /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718DF64B24A94B3900BE4A9F /* Triangle.swift */; };
 		71D3BB0824A62F4700849A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3BB0724A62F4700849A0C /* AppDelegate.swift */; };
 		71D3BB0A24A62F4700849A0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3BB0924A62F4700849A0C /* SceneDelegate.swift */; };
 		71D3BB0C24A62F4700849A0C /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3BB0B24A62F4700849A0C /* SetGameView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		718DF64B24A94B3900BE4A9F /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		71D3BB0424A62F4700849A0C /* Set Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D3BB0724A62F4700849A0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71D3BB0924A62F4700849A0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				71D3BB1B24A62FC400849A0C /* Losange.swift */,
 				71D3BB1D24A632EE00849A0C /* Wave.swift */,
+				718DF64B24A94B3900BE4A9F /* Triangle.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D3BB0824A62F4700849A0C /* AppDelegate.swift in Sources */,
+				718DF64C24A94B3900BE4A9F /* Triangle.swift in Sources */,
 				71D3BB1E24A632EE00849A0C /* Wave.swift in Sources */,
 				71D3BB2024A67CF900849A0C /* SetGame.swift in Sources */,
 				71D3BB2824A685F000849A0C /* Array+Only.swift in Sources */,
