@@ -26,6 +26,9 @@ class SetVM: ObservableObject {
     var thereIsAMatch: Bool {setGame.thereIsAMatch}
     var thereIsAMismatch: Bool {setGame.thereIsAMismatch}
     
+    var gameHasStarted: Bool {
+        return availableCards.count != 0
+    }
     
     //MARK: - Intents:
     
@@ -39,6 +42,10 @@ class SetVM: ObservableObject {
     
     func newGame() {
         setGame = SetVM.createNewGame()
+    }
+    
+    func startPlaying() {
+        setGame.deal(12)
     }
 
     static func colorFor(_ card: SetGame.Card) -> Color {

@@ -72,7 +72,6 @@ struct SetGame {
                 }
             }
         }
-        deal(12)
     }
     
     

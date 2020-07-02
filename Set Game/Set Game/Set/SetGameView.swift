@@ -13,37 +13,44 @@ struct SetGameView: View {
     @ObservedObject var viewModel = SetVM()
     
     var body: some View {
-        VStack {
-            Grid(viewModel.availableCards) { card in
-                SetCardView(card: card, isMismatched: self.viewModel.thereIsAMismatch, isMatched: self.viewModel.thereIsAMatch)
-                    .cardify(isFaceUp: true)
-                    .opacity(card.isMatched ? 0 : 1)
-                    .padding(3)
-                    .animation(.easeInOut(duration: 0.7))
-                    .transition(.offset(CGSize(width: -1000, height: 0)))
-                    .aspectRatio(0.7, contentMode: .fit)
-                    .onTapGesture {
-                        self.viewModel.select(card)
+        ZStack {
+            VStack {
+                Grid(viewModel.availableCards) { card in
+                    SetCardView(card: card, isMismatched: self.viewModel.thereIsAMismatch, isMatched: self.viewModel.thereIsAMatch)
+                        .cardify(isFaceUp: true)
+                        .opacity(card.isMatched ? 0 : 1)
+                        .padding(3)
+                        .animation(.easeInOut(duration: 0.7))
+                        .transition(.offset(CGSize(width: -1000, height: 0)))
+                        .aspectRatio(0.7, contentMode: .fit)
+                        .onTapGesture {
+                            self.viewModel.select(card)
+                    }
                 }
-            }
-            
-            HStack {
-                Button(action: {
-                    self.viewModel.dealThreeCards()
-                }, label: {
-                    Text("Deal 3 cards")
-                        .foregroundColor(.red)
-                        .opacity(viewModel.isDeckEmpty ? 0 : 1)
-                })
                 
-                Button(action: {
-                    self.viewModel.newGame()
-                }, label: {
-                    Text("New Game")
-                        .foregroundColor(.red)
-                        .opacity(viewModel.isDeckEmpty ? 0 : 1)
-                })
-            }
+                HStack {
+                    Button(action: {
+                        self.viewModel.dealThreeCards()
+                    }, label: {
+                        Text("Deal 3 cards")
+                            .foregroundColor(.red)
+                            .opacity(viewModel.isDeckEmpty ? 0 : 1)
+                    })
+                    
+                    Button(action: {
+                        self.viewModel.newGame()
+                    }, label: {
+                        Text("New Game")
+                            .foregroundColor(.red)
+                    })
+                }
+            }.opacity(viewModel.gameHasStarted ? 1 : 0)
+            
+            Button("Start playing") {
+                if !self.viewModel.gameHasStarted {
+                    self.viewModel.startPlaying()
+                }
+            }.opacity(viewModel.gameHasStarted ? 0 : 1)
         }
     }
 }
